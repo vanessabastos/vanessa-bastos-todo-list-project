@@ -1,0 +1,59 @@
+body {
+    background-color: khaki;
+    font-family: 'Courier New';
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  ol {
+    margin-left: 30%;
+  }
+  
+  input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 20px;
+    border-radius: 0px;
+    border: 4px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    font-family: inherit;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+  }
+  button {
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    border-radius: 0;
+    background-color: rgb(241, 241, 183);
+    font-family: inherit;
+    margin-bottom: px ;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 4px 4px 0px #000000;
+    font-size: 10px;
+    transition: transform 200ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000000;
+    color: black;
+    background-color: lightslategrey;
+  }
+  
+  button{
+    transform: scale(1.05);
+    
+  }

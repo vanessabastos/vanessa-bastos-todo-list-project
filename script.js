@@ -15,20 +15,35 @@ function criarTarefa() {
     
 }
 
-function duploClick() {
-  listaOl.addEventListener("dblclick", function (event) {
-  if (event.target.classList.contains("texto-item-list")) {
-    event.target.classList.toggle("completed");
-    }
-  }
-)
-}
-duploClick();
-  
 function limparLista() {
   btnclear.addEventListener("click",function(){
     listaTarefas.innerHTML= "";
     })
   }
-  limparLista();
+limparLista();
+
+//adicionando cor ao item
+const lista = listaOl.children;
+
+function corDoItem(event) {
+  for (let index = 0; index < lista.length; index += 1) {
+    lista[index].classList.remove('selected');
+    event.target.classList.add('selected');
+  }
+}
+listaOl.addEventListener('click',corDoItem);
+
+//adicionando duplo click 
+
+function riscaItem(event) {
+  if (event.target.classList.value !== 'completed' && event.target.classList.value === 'selected') {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+  console.log(event.target.classList.value);
+}
+
+listaOl.addEventListener('dblclick', riscaItem);
+
 

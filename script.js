@@ -46,4 +46,13 @@ function riscaItem(event) {
 
 listaOl.addEventListener('dblclick', riscaItem);
 
+// botão para apagar toda lista
+
+function removendoItem() {
+  listaOl.remove();
+}
+
+const apagandoTudo = document.querySelector('#apaga-tudo');
+apagandoTudo.addEventListener('click', removendoItem);
+
 

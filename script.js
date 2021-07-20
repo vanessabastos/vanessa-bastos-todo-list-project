@@ -15,14 +15,6 @@ function criarTarefa() {
     
 }
 
-function limparLista() {
-  btnclear.addEventListener("click",function(){
-    listaTarefas.innerHTML= "";
-    })
-  }
-limparLista();
-
-//adicionando cor ao item
 const lista = listaOl.children;
 
 function corDoItem(event) {
@@ -33,26 +25,19 @@ function corDoItem(event) {
 }
 listaOl.addEventListener('click',corDoItem);
 
-//adicionando duplo click 
-
-function riscaItem(event) {
-  if (event.target.classList.value !== 'completed' && event.target.classList.value === 'selected') {
-    event.target.classList.add('completed');
-  } else {
-    event.target.classList.remove('completed');
+function riscaItem() {
+  listaOl.addEventListener('dblclick', function(event){
+    if (event.target.classList.contains('adiciona-item'))
+      event.target.classList.toggle('completed')
+  });
   }
-  console.log(event.target.classList.value);
-}
+riscaItem();
 
-listaOl.addEventListener('dblclick', riscaItem);
-
-// botão para apagar toda lista
-
-function removendoItem() {
-  listaOl.remove();
-}
-
-const apagandoTudo = document.querySelector('#apaga-tudo');
-apagandoTudo.addEventListener('click', removendoItem);
+function limparLista() {
+  btnclear.addEventListener("click",function(){
+    listaOl.innerHTML= "";
+    })
+  }
+limparLista();
 
 

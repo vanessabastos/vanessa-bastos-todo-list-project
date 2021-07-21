@@ -32,6 +32,7 @@ input {
   margin-bottom: 20px;
 }
 button {
+  display: block;
   width: 150px;
   height: 30px;
   margin-right: auto;
@@ -49,7 +50,7 @@ button {
   cursor: pointer;
   box-shadow: 4px 4px 0px #000000;
   color: black;
-  background-color: lightslategrey;
+  background-color: lightgoldenrodyellow;
   
 }
 
@@ -58,6 +59,6 @@ button {
   }
 
   .completed {
-    text-decoration: line-through solid rgb(0,0,0);
+    text-decoration: line-through solid rgb(0, 0, 0);
   }
 

@@ -1,19 +1,19 @@
 const inputTarefa = document.getElementById('texto-tarefa');
 const listaOl = document.getElementById('lista-tarefas');
 const btnCriaTarefa = document.getElementById('criar-tarefa');
-const btnclear = document.getElementById('apaga-tudo')
+const btnclear = document.getElementById('apaga-tudo');
+const btnRemove = document.getElementById('remover-finalizados');
 
 btnCriaTarefa.addEventListener('click', criarTarefa);
 
 function criarTarefa() {
-    const textoDaLista = inputTarefa.value;
-    const itensLista = document.createElement('li');
-    itensLista.innerText = textoDaLista;
-    listaOl.appendChild(itensLista);
-    itensLista.classList.add('adiciona-item');
-    inputTarefa.value = '';
-    
-}
+  const textoDaLista = inputTarefa.value;
+  const itensLista = document.createElement('li');
+  itensLista.innerText = textoDaLista;
+  listaOl.appendChild(itensLista);
+  itensLista.classList.add('adiciona-item');
+  inputTarefa.value = '';
+} 
 
 const lista = listaOl.children;
 
@@ -23,21 +23,30 @@ function corDoItem(event) {
     event.target.classList.add('selected');
   }
 }
-listaOl.addEventListener('click',corDoItem);
+listaOl.addEventListener('click', corDoItem);
 
 function riscaItem() {
-  listaOl.addEventListener('dblclick', function(event){
-    if (event.target.classList.contains('adiciona-item'))
-      event.target.classList.toggle('completed')
-  });
-  }
+  listaOl.addEventListener('dblclick', function(event) {
+    if (event.target.classList.contains('adiciona-item')) {
+      event.target.classList.toggle('completed');
+    }
+  })
+}  
 riscaItem();
 
 function limparLista() {
   btnclear.addEventListener("click",function(){
     listaOl.innerHTML= "";
     })
-  }
+}
 limparLista();
 
-
+function removeFinalizados() {
+  btnRemove.addEventListener('click', function() {
+    const apagaRiscados = document.querySelectorAll('.completed')
+    for(let index = 0; index < apagaRiscados.length; index += 1) {
+      listaOl.removeChild(apagaRiscados[index])
+    }
+  })
+}
+removeFinalizados();

@@ -6,7 +6,7 @@ const btnCriaTarefa = document.getElementById('criar-tarefa');
 const btnclear = document.getElementById('apaga-tudo');
 const btnRemove = document.getElementById('remover-finalizados');
 const btnSalvar = document.getElementById('salvar-tarefas');
-const btnRemoveSel = document.getAnimations('remover-selecionado');
+const btnRemoveSel = document.getElementById('remover-selecionado');
 
 btnCriaTarefa.addEventListener('click', criarTarefa);
 function criarTarefa() {
@@ -16,7 +16,7 @@ function criarTarefa() {
   listaOl.appendChild(itensLista);
   itensLista.classList.add('adiciona-item');
   inputTarefa.value = '';
-} 
+}
 
 const lista = listaOl.children;
 function corDoItem(event) {
@@ -33,20 +33,20 @@ function riscaItem() {
       event.target.classList.toggle('completed');
     }
   });
-}  
+}
 riscaItem();
 
 function limparLista() {
-  btnclear.addEventListener("click",function(){
-    listaOl.innerHTML= "";
-    });
+  btnclear.addEventListener("click", function () {
+    listaOl.innerHTML = "";
+  });
 }
 limparLista();
 
 function removeFinalizados() {
-  btnRemove.addEventListener('click', function() {
+  btnRemove.addEventListener('click', function () {
     const apagaRiscados = document.querySelectorAll('.completed');
-    for(let index = 0; index < apagaRiscados.length; index += 1) {
+    for (let index = 0; index < apagaRiscados.length; index += 1) {
       listaOl.removeChild(apagaRiscados[index])
     }
   });
@@ -66,11 +66,7 @@ window.onload = function restaurandoLista() {
   }
 };
 
-const removeSelected = document.querySelector('#remover-selecionado');
-
-function selectedRemove() {
-  const seleciona= document.querySelector('selected');
-  if (seleciona) {
-    seleciona.remove();
-  }
-}
+btnRemoveSel.addEventListener('click', () => {
+  const seleciona = document.getElementsByClassName('selected');
+  seleciona[0].remove();
+});
